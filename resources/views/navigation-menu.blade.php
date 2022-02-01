@@ -16,8 +16,23 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('categories.index') }}"
+                        :active="request()->routeIs('categories.index')">
+                        {{ __('Categories') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('locations.index') }}"
+                        :active="request()->routeIs('locations.index')">
+                        {{ __('Locations') }}
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('metrics.index') }}" :active="request()->routeIs('metrics.index')">
                         {{ __('Metrics') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('suppliers.index') }}"
+                        :active="request()->routeIs('suppliers.index')">
+                        {{ __('Suppliers') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -161,9 +176,24 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
 
+            <x-jet-responsive-nav-link href="{{ route('categories.index') }}"
+                :active="request()->routeIs('categories.index')">
+                {{ __('Categories') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('locations.index') }}"
+                :active="request()->routeIs('locations.index')">
+                {{ __('Locations') }}
+            </x-jet-responsive-nav-link>
+
             <x-jet-responsive-nav-link href="{{ route('metrics.index') }}"
                 :active="request()->routeIs('metrics.index')">
                 {{ __('Metrics') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('suppliers.index') }}"
+                :active="request()->routeIs('suppliers.index')">
+                {{ __('Suppliers') }}
             </x-jet-responsive-nav-link>
         </div>
 

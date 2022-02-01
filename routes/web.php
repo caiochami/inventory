@@ -19,5 +19,11 @@ Route::view('/', 'welcome');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
-    Route::get('metrics', Livewire\Metrics\Index::class)->name('metrics.index');
+    Route::get('/categories', Livewire\Categories\Index::class)->name('categories.index');
+
+    Route::get('/locations', Livewire\Locations\Index::class)->name('locations.index');
+
+    Route::get('/metrics', Livewire\Metrics\Index::class)->name('metrics.index');
+
+    Route::get('/suppliers', Livewire\Suppliers\Index::class)->name('suppliers.index');
 });

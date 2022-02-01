@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Livewire\Metrics;
+namespace App\Http\Livewire\Categories;
 
-use App\Models\Metric;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
+use App\Models\Category;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 
 class DataTable extends LivewireDatatable
 {
-    public $model = Metric::class;
+    public $model = Category::class;
 
     public function delete($id)
     {
         $this->dispatchBrowserEvent('notify', [
             'type' => 'success',
-            'message' => 'Metric deleted successfully',
+            'message' => 'Category deleted successfully',
         ]);
 
         $this->model::destroy($id);
@@ -31,19 +30,14 @@ class DataTable extends LivewireDatatable
                 ->defaultSort('asc')
                 ->searchable(),
 
-            Column::name('symbol'),
-
-            BooleanColumn::name('default')->label('System Default'),
-
-            Column::name('user.name')
-                ->defaultSort('asc')
-                ->label('Created By'),
+            Column::name('slug')
+                ->searchable(),
 
             Column::callback(
-                ['id', 'default'],
-                fn ($id, $default) => view(
-                    'livewire.metrics.data-table.actions-column',
-                    ['id' => $id, 'default' => $default]
+                ['id','slug'],
+                fn ($id, $slug) => view(
+                    'livewire.categories.data-table.actions-column',
+                    ['id' => $id, 'slug' => $slug]
                 )
             )
                 ->unsortable()
